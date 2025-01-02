@@ -1,0 +1,207 @@
+﻿namespace Litefolderplus
+{
+    partial class mainwindow
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainwindow));
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openItToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showMoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteTabToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newTabToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.basepanel = new System.Windows.Forms.Panel();
+            this.Mainview = new System.Windows.Forms.ListView();
+            this.Namecolumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Size = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.filetype = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.godir = new System.Windows.Forms.TextBox();
+            this.menuStrip1.SuspendLayout();
+            this.basepanel.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.tabToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openItToolStripMenuItem,
+            this.showMoreToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // openItToolStripMenuItem
+            // 
+            this.openItToolStripMenuItem.Name = "openItToolStripMenuItem";
+            this.openItToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.openItToolStripMenuItem.Text = "Open it";
+            // 
+            // showMoreToolStripMenuItem
+            // 
+            this.showMoreToolStripMenuItem.Name = "showMoreToolStripMenuItem";
+            this.showMoreToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.showMoreToolStripMenuItem.Text = "Show more";
+            // 
+            // tabToolStripMenuItem
+            // 
+            this.tabToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deleteTabToolStripMenuItem,
+            this.newTabToolStripMenuItem});
+            this.tabToolStripMenuItem.Name = "tabToolStripMenuItem";
+            this.tabToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.tabToolStripMenuItem.Text = "Tab";
+            // 
+            // deleteTabToolStripMenuItem
+            // 
+            this.deleteTabToolStripMenuItem.Name = "deleteTabToolStripMenuItem";
+            this.deleteTabToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.deleteTabToolStripMenuItem.Text = "Delete tab";
+            // 
+            // newTabToolStripMenuItem
+            // 
+            this.newTabToolStripMenuItem.Name = "newTabToolStripMenuItem";
+            this.newTabToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.newTabToolStripMenuItem.Text = "New tab";
+            // 
+            // basepanel
+            // 
+            this.basepanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.basepanel.Controls.Add(this.godir);
+            this.basepanel.Controls.Add(this.Mainview);
+            this.basepanel.Location = new System.Drawing.Point(12, 27);
+            this.basepanel.Name = "basepanel";
+            this.basepanel.Size = new System.Drawing.Size(776, 411);
+            this.basepanel.TabIndex = 1;
+            // 
+            // Mainview
+            // 
+            this.Mainview.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Mainview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Mainview.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Namecolumn,
+            this.Size,
+            this.filetype,
+            this.date});
+            this.Mainview.ForeColor = System.Drawing.Color.Black;
+            this.Mainview.HideSelection = false;
+            this.Mainview.Location = new System.Drawing.Point(3, 28);
+            this.Mainview.Name = "Mainview";
+            this.Mainview.Size = new System.Drawing.Size(770, 383);
+            this.Mainview.TabIndex = 0;
+            this.Mainview.UseCompatibleStateImageBehavior = false;
+            this.Mainview.View = System.Windows.Forms.View.Details;
+            this.Mainview.Click += new System.EventHandler(this.Mainview_Click);
+            // 
+            // Namecolumn
+            // 
+            this.Namecolumn.Text = "Name";
+            this.Namecolumn.Width = 389;
+            // 
+            // Size
+            // 
+            this.Size.Text = "size";
+            this.Size.Width = 101;
+            // 
+            // filetype
+            // 
+            this.filetype.DisplayIndex = 3;
+            this.filetype.Text = "filetype";
+            this.filetype.Width = 116;
+            // 
+            // date
+            // 
+            this.date.DisplayIndex = 2;
+            this.date.Text = "date";
+            this.date.Width = 111;
+            // 
+            // godir
+            // 
+            this.godir.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.godir.Location = new System.Drawing.Point(3, 3);
+            this.godir.Name = "godir";
+            this.godir.Size = new System.Drawing.Size(770, 19);
+            this.godir.TabIndex = 1;
+            this.godir.KeyDown += new System.Windows.Forms.KeyEventHandler(this.godir_KeyDown);
+            // 
+            // mainwindow
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.basepanel);
+            this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
+            this.Name = "mainwindow";
+            this.Text = "LiteFolderPlus.net";
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.basepanel.ResumeLayout(false);
+            this.basepanel.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openItToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showMoreToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tabToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteTabToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newTabToolStripMenuItem;
+
+        #endregion
+
+        private System.Windows.Forms.Panel basepanel;
+        private System.Windows.Forms.ListView Mainview;
+        private System.Windows.Forms.ColumnHeader Namecolumn;
+        private System.Windows.Forms.ColumnHeader Size;
+        private System.Windows.Forms.ColumnHeader filetype;
+        private System.Windows.Forms.ColumnHeader date;
+        private System.Windows.Forms.TextBox godir;
+    }
+}
