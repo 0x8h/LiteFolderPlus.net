@@ -49,18 +49,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="csharp\directorys.cs" />
     <Compile Include="csharp\driveformattype.cs" />
     <Compile Include="csharp\Exceptionwriter.cs" />
+    <Compile Include="csharp\files.cs" />
+    <Compile Include="csharp\GetFoldersize.cs" />
+    <Compile Include="csharp\Openfile.cs" />
+    <Compile Include="csharp\win32.cs" />
     <Compile Include="form\mainwindow.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="form\mainwindow.Designer.cs">
       <DependentUpon>mainwindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="form\Movedialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\Movedialog.Designer.cs">
+      <DependentUpon>Movedialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="form\mainwindow.resx">
       <DependentUpon>mainwindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\Movedialog.resx">
+      <DependentUpon>Movedialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

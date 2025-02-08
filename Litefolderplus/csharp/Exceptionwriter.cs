@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Litefolderplus.csharp
 {
@@ -12,16 +8,14 @@ namespace Litefolderplus.csharp
         public static void exceptionwrite(Exception exception)
         {
             DateTime doutei = DateTime.Now;
-            string asf = $"{doutei.Year}/{doutei.Month}/{doutei.Year}/{doutei.Date}/{doutei.Hour}:{doutei.Minute}";
-            using (FileStream fs = File.Create(asf))
+            string asf = $"{doutei.Hour}_{doutei.Minute}.txt";
+            using (StreamWriter sr = new StreamWriter(asf))
             {
-                using (StreamWriter sr = new StreamWriter(asf))
-                {
-                    sr.WriteLine("---LiteFolderPlus.net exception---");
-                    sr.WriteLine(exception.Message);
-                    sr.Dispose();
-                }
-                fs.Dispose();
+                sr.WriteLine("---LiteFolderPlus.net exception---");
+                sr.WriteLine(exception.Message);
+                sr.WriteLine("---Stack Trave information---");
+                sr.WriteLine(exception.StackTrace);
+                sr.Dispose();
             }
         }
     }

@@ -29,23 +29,29 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainwindow));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openItToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showMoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.goHomeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteTabToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newTabToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.godir = new System.Windows.Forms.TextBox();
             this.basepanel = new System.Windows.Forms.Panel();
             this.Mainview = new System.Windows.Forms.ListView();
             this.Namecolumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Size = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.filetype = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.godir = new System.Windows.Forms.TextBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.moveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.basepanel.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -63,7 +69,8 @@
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openItToolStripMenuItem,
-            this.showMoreToolStripMenuItem});
+            this.showMoreToolStripMenuItem,
+            this.goHomeToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -79,6 +86,13 @@
             this.showMoreToolStripMenuItem.Name = "showMoreToolStripMenuItem";
             this.showMoreToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.showMoreToolStripMenuItem.Text = "Show more";
+            // 
+            // goHomeToolStripMenuItem
+            // 
+            this.goHomeToolStripMenuItem.Name = "goHomeToolStripMenuItem";
+            this.goHomeToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.goHomeToolStripMenuItem.Text = "Go home";
+            this.goHomeToolStripMenuItem.Click += new System.EventHandler(this.goHomeToolStripMenuItem_Click);
             // 
             // tabToolStripMenuItem
             // 
@@ -100,6 +114,16 @@
             this.newTabToolStripMenuItem.Name = "newTabToolStripMenuItem";
             this.newTabToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.newTabToolStripMenuItem.Text = "New tab";
+            // 
+            // godir
+            // 
+            this.godir.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.godir.Location = new System.Drawing.Point(3, 3);
+            this.godir.Name = "godir";
+            this.godir.Size = new System.Drawing.Size(770, 19);
+            this.godir.TabIndex = 1;
+            this.godir.KeyDown += new System.Windows.Forms.KeyEventHandler(this.godir_KeyDown);
             // 
             // basepanel
             // 
@@ -124,6 +148,7 @@
             this.Size,
             this.filetype,
             this.date});
+            this.Mainview.ContextMenuStrip = this.contextMenuStrip1;
             this.Mainview.ForeColor = System.Drawing.Color.Black;
             this.Mainview.HideSelection = false;
             this.Mainview.Location = new System.Drawing.Point(3, 28);
@@ -132,7 +157,7 @@
             this.Mainview.TabIndex = 0;
             this.Mainview.UseCompatibleStateImageBehavior = false;
             this.Mainview.View = System.Windows.Forms.View.Details;
-            this.Mainview.Click += new System.EventHandler(this.Mainview_Click);
+            this.Mainview.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Mainview_MouseDoubleClick);
             // 
             // Namecolumn
             // 
@@ -156,15 +181,27 @@
             this.date.Text = "date";
             this.date.Width = 111;
             // 
-            // godir
+            // contextMenuStrip1
             // 
-            this.godir.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.godir.Location = new System.Drawing.Point(3, 3);
-            this.godir.Name = "godir";
-            this.godir.Size = new System.Drawing.Size(770, 19);
-            this.godir.TabIndex = 1;
-            this.godir.KeyDown += new System.Windows.Forms.KeyEventHandler(this.godir_KeyDown);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.copyToolStripMenuItem,
+            this.moveToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
+            // 
+            // copyToolStripMenuItem
+            // 
+            this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.copyToolStripMenuItem.Text = "Copy";
+            this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
+            // 
+            // moveToolStripMenuItem
+            // 
+            this.moveToolStripMenuItem.Name = "moveToolStripMenuItem";
+            this.moveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.moveToolStripMenuItem.Text = "Move";
+            this.moveToolStripMenuItem.Click += new System.EventHandler(this.moveToolStripMenuItem_Click);
             // 
             // mainwindow
             // 
@@ -181,6 +218,7 @@
             this.menuStrip1.PerformLayout();
             this.basepanel.ResumeLayout(false);
             this.basepanel.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -195,13 +233,16 @@
         private System.Windows.Forms.ToolStripMenuItem newTabToolStripMenuItem;
 
         #endregion
-
+        private System.Windows.Forms.ToolStripMenuItem goHomeToolStripMenuItem;
+        private System.Windows.Forms.TextBox godir;
         private System.Windows.Forms.Panel basepanel;
-        private System.Windows.Forms.ListView Mainview;
         private System.Windows.Forms.ColumnHeader Namecolumn;
         private System.Windows.Forms.ColumnHeader Size;
         private System.Windows.Forms.ColumnHeader filetype;
         private System.Windows.Forms.ColumnHeader date;
-        private System.Windows.Forms.TextBox godir;
+        protected System.Windows.Forms.ListView Mainview;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem moveToolStripMenuItem;
     }
 }
