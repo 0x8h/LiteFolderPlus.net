@@ -39,19 +39,23 @@
             this.tabToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteTabToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newTabToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.moveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.godir = new System.Windows.Forms.TextBox();
-            this.basepanel = new System.Windows.Forms.Panel();
-            this.Mainview = new System.Windows.Forms.ListView();
             this.Namecolumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Size = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.filetype = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.moveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Mainview = new System.Windows.Forms.ListView();
+            this.basepanel = new System.Windows.Forms.Panel();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
             this.menuStrip1.SuspendLayout();
-            this.basepanel.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
+            this.basepanel.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -114,6 +118,29 @@
             this.newTabToolStripMenuItem.Name = "newTabToolStripMenuItem";
             this.newTabToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.newTabToolStripMenuItem.Text = "New tab";
+            this.newTabToolStripMenuItem.Click += new System.EventHandler(this.newTabToolStripMenuItem_Click);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.copyToolStripMenuItem,
+            this.moveToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(105, 48);
+            // 
+            // copyToolStripMenuItem
+            // 
+            this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
+            this.copyToolStripMenuItem.Text = "Copy";
+            this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
+            // 
+            // moveToolStripMenuItem
+            // 
+            this.moveToolStripMenuItem.Name = "moveToolStripMenuItem";
+            this.moveToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
+            this.moveToolStripMenuItem.Text = "Move";
+            this.moveToolStripMenuItem.Click += new System.EventHandler(this.moveToolStripMenuItem_Click);
             // 
             // godir
             // 
@@ -121,43 +148,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.godir.Location = new System.Drawing.Point(3, 3);
             this.godir.Name = "godir";
-            this.godir.Size = new System.Drawing.Size(770, 19);
+            this.godir.Size = new System.Drawing.Size(750, 19);
             this.godir.TabIndex = 1;
-            this.godir.KeyDown += new System.Windows.Forms.KeyEventHandler(this.godir_KeyDown);
-            // 
-            // basepanel
-            // 
-            this.basepanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.basepanel.Controls.Add(this.godir);
-            this.basepanel.Controls.Add(this.Mainview);
-            this.basepanel.Location = new System.Drawing.Point(12, 27);
-            this.basepanel.Name = "basepanel";
-            this.basepanel.Size = new System.Drawing.Size(776, 411);
-            this.basepanel.TabIndex = 1;
-            // 
-            // Mainview
-            // 
-            this.Mainview.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Mainview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Mainview.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Namecolumn,
-            this.Size,
-            this.filetype,
-            this.date});
-            this.Mainview.ContextMenuStrip = this.contextMenuStrip1;
-            this.Mainview.ForeColor = System.Drawing.Color.Black;
-            this.Mainview.HideSelection = false;
-            this.Mainview.Location = new System.Drawing.Point(3, 28);
-            this.Mainview.Name = "Mainview";
-            this.Mainview.Size = new System.Drawing.Size(770, 383);
-            this.Mainview.TabIndex = 0;
-            this.Mainview.UseCompatibleStateImageBehavior = false;
-            this.Mainview.View = System.Windows.Forms.View.Details;
-            this.Mainview.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Mainview_MouseDoubleClick);
+            this.godir.KeyDown += new System.Windows.Forms.KeyEventHandler(this.godir_KeyDown_1);
             // 
             // Namecolumn
             // 
@@ -181,34 +174,69 @@
             this.date.Text = "date";
             this.date.Width = 111;
             // 
-            // contextMenuStrip1
+            // Mainview
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.copyToolStripMenuItem,
-            this.moveToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
+            this.Mainview.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Mainview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Mainview.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Namecolumn,
+            this.Size,
+            this.filetype,
+            this.date});
+            this.Mainview.ContextMenuStrip = this.contextMenuStrip1;
+            this.Mainview.ForeColor = System.Drawing.Color.Black;
+            this.Mainview.HideSelection = false;
+            this.Mainview.Location = new System.Drawing.Point(3, 28);
+            this.Mainview.Name = "Mainview";
+            this.Mainview.Size = new System.Drawing.Size(750, 345);
+            this.Mainview.TabIndex = 0;
+            this.Mainview.UseCompatibleStateImageBehavior = false;
+            this.Mainview.View = System.Windows.Forms.View.Details;
+            this.Mainview.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Mainview_MouseDoubleClick_1);
             // 
-            // copyToolStripMenuItem
+            // basepanel
             // 
-            this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.copyToolStripMenuItem.Text = "Copy";
-            this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
+            this.basepanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.basepanel.Controls.Add(this.godir);
+            this.basepanel.Controls.Add(this.Mainview);
+            this.basepanel.Location = new System.Drawing.Point(6, 6);
+            this.basepanel.Name = "basepanel";
+            this.basepanel.Size = new System.Drawing.Size(756, 373);
+            this.basepanel.TabIndex = 5;
             // 
-            // moveToolStripMenuItem
+            // tabPage1
             // 
-            this.moveToolStripMenuItem.Name = "moveToolStripMenuItem";
-            this.moveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.moveToolStripMenuItem.Text = "Move";
-            this.moveToolStripMenuItem.Click += new System.EventHandler(this.moveToolStripMenuItem_Click);
+            this.tabPage1.Controls.Add(this.basepanel);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(768, 385);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Location = new System.Drawing.Point(12, 27);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(776, 411);
+            this.tabControl1.TabIndex = 1;
             // 
             // mainwindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.basepanel);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
@@ -216,9 +244,11 @@
             this.Text = "LiteFolderPlus.net";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.basepanel.ResumeLayout(false);
             this.basepanel.PerformLayout();
-            this.contextMenuStrip1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -234,15 +264,17 @@
 
         #endregion
         private System.Windows.Forms.ToolStripMenuItem goHomeToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem moveToolStripMenuItem;
         private System.Windows.Forms.TextBox godir;
-        private System.Windows.Forms.Panel basepanel;
         private System.Windows.Forms.ColumnHeader Namecolumn;
         private System.Windows.Forms.ColumnHeader Size;
         private System.Windows.Forms.ColumnHeader filetype;
         private System.Windows.Forms.ColumnHeader date;
         protected System.Windows.Forms.ListView Mainview;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem moveToolStripMenuItem;
+        private System.Windows.Forms.Panel basepanel;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabControl tabControl1;
     }
 }

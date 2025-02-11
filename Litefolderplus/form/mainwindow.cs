@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Specialized;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Litefolderplus
@@ -80,91 +81,19 @@ namespace Litefolderplus
             Mainview.Items.Add(Item);
         }
 
-        private void Mainview_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void godir_KeyDown(object sender, KeyEventArgs e)
-        {
-            string a = godir.Text;
-            try
-            {
-                if (Directory.Exists(a))
-                {
-                    GetDirctoryItems(a);
-                    GetFiles(a);
-                }
-                else if (File.Exists(a))
-                {
-                    Openfile.openfileindefaultapplication(a);
-                }
-            }
-            catch (Exception ex)
-            {
-                Exceptionwriter.exceptionwrite(ex);
-            } 
-        }
-
         private void gohome()
         {
+            int current = tabControl1.SelectedIndex;
             godir.Text = "";
             Mainview.Items.Clear();
+            Text = title;
+            tabControl1.TabPages[current].Text = "Newtab";
             Getdriveletter();
         }
 
         private void goHomeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             gohome();
-        }
-
-        private void Mainview_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            try
-            {
-                if (Mainview.SelectedItems.Count > 0 && Mainview.SelectedItems.Count < 2)
-                {
-                    string a = Mainview.SelectedItems[0].Text;
-                    mem2 = a;
-                    if (directorys.IsDrive(a))
-                    {
-                        godir.Text = a;
-                        Text = $"{title} - {godir.Text}";
-                        GetDirctoryItems(a);
-                        GetFiles(a);
-                    }
-                    else
-                    {
-                        godir.Text += $@"{a}\";
-                        if (Directory.Exists(godir.Text))
-                        {
-                            Text = $"{title} - {godir.Text}";
-                            GetDirctoryItems(godir.Text);
-                            GetFiles(godir.Text);
-                        }
-                        else if (File.Exists(godir.Text = godir.Text.Substring(0, godir.Text.Length - 1)))
-                        {
-                            mem1 = a;
-                            Openfile.openfileindefaultapplication(godir.Text);
-                            godir.Text = godir.Text.Substring(0, godir.Text.Length - a.Length);
-                        }
-                        else
-                        {
-                            Text = $"{title} - Not found files / dirctory";
-                            gohome();
-                        }
-                    }
-
-                }
-                else
-                {
-                    win32.MessageBeep(0);
-                }
-            }
-            catch (Exception ex)
-            {
-                Exceptionwriter.exceptionwrite(ex);
-            }
         }
 
         private void moveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -210,6 +139,92 @@ namespace Litefolderplus
             catch (Exception ez)
             {
                 Exceptionwriter.exceptionwrite(ez);
+            }
+        }
+
+        private void newTabToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TabPage tab = new TabPage();
+            tab.Name = "Newtab" + Gettabnum.Get(tabControl1);
+            tab.Text = "Newtab";
+            tabControl1.TabPages.Add(tab);
+            tabControl1.SelectedTab = tab;
+            Panel panel = new Panel();
+            panel.Controls.AddRange(basepanel.Controls.Cast<Control>().ToArray());
+            tab.Controls.Add(panel);
+        }
+
+        private void Mainview_MouseDoubleClick_1(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                if (Mainview.SelectedItems.Count > 0 && Mainview.SelectedItems.Count < 2)
+                {
+                    string a = Mainview.SelectedItems[0].Text;
+                    int af = tabControl1.SelectedIndex;
+                    mem2 = a;
+                    if (directorys.IsDrive(a))
+                    {
+                        godir.Text = a;
+                        Text = $"{title} - {godir.Text}";
+                        tabControl1.TabPages[af].Text = a;
+                        GetDirctoryItems(a);
+                        GetFiles(a);
+                    }
+                    else
+                    {
+                        godir.Text += $@"{a}\";
+                        if (Directory.Exists(godir.Text))
+                        {
+                            Text = $"{title} - {godir.Text}";
+                            tabControl1.TabPages[af].Text = a;
+                            GetDirctoryItems(godir.Text);
+                            GetFiles(godir.Text);
+                        }
+                        else if (File.Exists(godir.Text = godir.Text.Substring(0, godir.Text.Length - 1)))
+                        {
+                            mem1 = a;
+                            tabControl1.TabPages[af].Text = a;
+                            Openfile.openfileindefaultapplication(godir.Text);
+                            godir.Text = godir.Text.Substring(0, godir.Text.Length - a.Length);
+                        }
+                        else
+                        {
+                            Text = $"{title} - Not found files / dirctory";
+                            gohome();
+                        }
+                    }
+
+                }
+                else
+                {
+                    win32.MessageBeep(0);
+                }
+            }
+            catch (Exception ex)
+            {
+                Exceptionwriter.exceptionwrite(ex);
+            }
+        }
+
+        private void godir_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            string a = godir.Text;
+            try
+            {
+                if (Directory.Exists(a))
+                {
+                    GetDirctoryItems(a);
+                    GetFiles(a);
+                }
+                else if (File.Exists(a))
+                {
+                    Openfile.openfileindefaultapplication(a);
+                }
+            }
+            catch (Exception ex)
+            {
+                Exceptionwriter.exceptionwrite(ex);
             }
         }
     }
