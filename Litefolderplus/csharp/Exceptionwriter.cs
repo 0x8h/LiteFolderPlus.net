@@ -5,7 +5,7 @@ namespace Litefolderplus.csharp
 {
     public class Exceptionwriter
     {
-        public static void exceptionwrite(Exception exception)
+        public static void write(Exception exception)
         {
             DateTime doutei = DateTime.Now;
             string asf = $"{doutei.Hour}_{doutei.Minute}.txt";

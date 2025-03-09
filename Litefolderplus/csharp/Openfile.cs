@@ -19,7 +19,7 @@ namespace Litefolderplus.csharp
             }
             catch (Exception e)
             {
-                Exceptionwriter.exceptionwrite(e);
+                Exceptionwriter.write(e);
             }
         }
     }

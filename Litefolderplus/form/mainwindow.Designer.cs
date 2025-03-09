@@ -42,7 +42,7 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.moveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.godir = new System.Windows.Forms.TextBox();
+            this.AddressBar = new System.Windows.Forms.TextBox();
             this.Namecolumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Size = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.filetype = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -142,15 +142,15 @@
             this.moveToolStripMenuItem.Text = "Move";
             this.moveToolStripMenuItem.Click += new System.EventHandler(this.moveToolStripMenuItem_Click);
             // 
-            // godir
+            // AddressBar
             // 
-            this.godir.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.AddressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.godir.Location = new System.Drawing.Point(3, 3);
-            this.godir.Name = "godir";
-            this.godir.Size = new System.Drawing.Size(750, 19);
-            this.godir.TabIndex = 1;
-            this.godir.KeyDown += new System.Windows.Forms.KeyEventHandler(this.godir_KeyDown_1);
+            this.AddressBar.Location = new System.Drawing.Point(3, 3);
+            this.AddressBar.Name = "AddressBar";
+            this.AddressBar.Size = new System.Drawing.Size(750, 19);
+            this.AddressBar.TabIndex = 1;
+            this.AddressBar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.godir_KeyDown_1);
             // 
             // Namecolumn
             // 
@@ -201,7 +201,7 @@
             this.basepanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.basepanel.Controls.Add(this.godir);
+            this.basepanel.Controls.Add(this.AddressBar);
             this.basepanel.Controls.Add(this.Mainview);
             this.basepanel.Location = new System.Drawing.Point(6, 6);
             this.basepanel.Name = "basepanel";
@@ -267,14 +267,14 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem moveToolStripMenuItem;
-        private System.Windows.Forms.TextBox godir;
+        private System.Windows.Forms.TextBox AddressBar;
         private System.Windows.Forms.ColumnHeader Namecolumn;
         private System.Windows.Forms.ColumnHeader Size;
         private System.Windows.Forms.ColumnHeader filetype;
         private System.Windows.Forms.ColumnHeader date;
-        protected System.Windows.Forms.ListView Mainview;
         private System.Windows.Forms.Panel basepanel;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabControl tabControl1;
+        internal System.Windows.Forms.ListView Mainview;
     }
 }

@@ -49,14 +49,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="csharp\AddressBarFunc.cs" />
     <Compile Include="csharp\directorys.cs" />
     <Compile Include="csharp\driveformattype.cs" />
     <Compile Include="csharp\Exceptionwriter.cs" />
     <Compile Include="csharp\files.cs" />
+    <Compile Include="csharp\GetDriveLetter.cs" />
+    <Compile Include="csharp\GetFiles.cs" />
+    <Compile Include="csharp\GetFolder.cs" />
     <Compile Include="csharp\GetFoldersize.cs" />
     <Compile Include="csharp\Gettabnum.cs" />
+    <Compile Include="csharp\Listitemadd.cs" />
     <Compile Include="csharp\Openfile.cs" />
-    <Compile Include="csharp\win32.cs" />
+    <Compile Include="csharp\publics.cs" />
+    <Compile Include="csharp\RightClickMenuFunc.cs" />
+    <Compile Include="csharp\tabinfolist.cs" />
     <Compile Include="form\mainwindow.cs">
       <SubType>Form</SubType>
     </Compile>

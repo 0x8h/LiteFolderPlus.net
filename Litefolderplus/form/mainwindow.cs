@@ -17,78 +17,27 @@ namespace Litefolderplus
         {
             InitializeComponent();
             gohome();
-            
-        }
-        public void Getdriveletter()
-        {
-            if (godir.Text == "")
-            {
-                string[] drives = Directory.GetLogicalDrives();
-                foreach (string s in drives)
-                {
-                    DriveInfo d = new DriveInfo(s);
-                    long total = d.TotalSize;
-                    itemsadd(s, $"{total / (1024 * 1024 * 1024)}GB", $"{driveformattype.formattype(s)}", "");
-                }
-            }
         }
 
-        public void GetDirctoryItems(string sDir)
+        private void GetDirctoryItems(string sDir)
         {
             Mainview.Items.Clear();
-            try
-            {
-                DirectoryInfo di = new DirectoryInfo(sDir);
-                foreach (var dir in di.GetDirectories())
-                {
-                    itemsadd(dir.Name, "", "Folder", $"{Directory.GetLastWriteTime(dir.FullName)}", dir.FullName);
-                }
-            }
-            catch (Exception e)
-            {
-                Exceptionwriter.exceptionwrite(e);
-            }
+            GetFolder.Get(Mainview, sDir);
         }
-        private void GetFiles(string sDir)
+
+        private void GetFile(string sDir)
         {
-            try
-            {
-                DirectoryInfo di = new DirectoryInfo(sDir);
-                FileInfo[] fi = di.GetFiles("*");
-                foreach(FileInfo fi2 in fi)
-                {
-                    itemsadd(fi2.Name, $"{files.GetFilesize(fi2)}", "file", $"{Directory.GetLastWriteTime(fi2.FullName)}", fi2.FullName);
-                }
-            }
-            catch(Exception ex)
-            {
-                Exceptionwriter.exceptionwrite(ex);
-            }
-        }
-        private void itemsadd(string item, string size, string type, string date, string optitem = null)
-        {
-            if (optitem == null)
-            {
-                optitem = item;
-            }
-            var Item = new ListViewItem(item)
-            {
-                Tag = optitem
-            };
-            Item.SubItems.Add(size);
-            Item.SubItems.Add(type);
-            Item.SubItems.Add(date);
-            Mainview.Items.Add(Item);
+            GetFiles.Get(Mainview, sDir);
         }
 
         private void gohome()
         {
             int current = tabControl1.SelectedIndex;
-            godir.Text = "";
+            AddressBar.Text = "";
             Mainview.Items.Clear();
             Text = title;
             tabControl1.TabPages[current].Text = "Newtab";
-            Getdriveletter();
+            GetDriveLetter.Get(Mainview);
         }
 
         private void goHomeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -96,13 +45,13 @@ namespace Litefolderplus
             gohome();
         }
 
-        private void moveToolStripMenuItem_Click(object sender, EventArgs e)
+        private void moveToolStripMenuItem_Click(object sender, EventArgs e) //soon tm
         {
             try
             {
                 if (Mainview.SelectedItems.Count > 0)
                 {
-                    string a = $@"{godir.Text}{Mainview.SelectedItems[0].Text}";
+                    string a = $@"{AddressBar.Text}{Mainview.SelectedItems[0].Text}";
                     StringCollection str = new StringCollection();
                     str.Add(a);
                     Movedialog movedialog = new Movedialog();
@@ -111,35 +60,13 @@ namespace Litefolderplus
             }
             catch (Exception ez)
             {
-                Exceptionwriter.exceptionwrite(ez);
+                Exceptionwriter.write(ez);
             }
         }
 
         private void copyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (Mainview.SelectedItems.Count > 0)
-                {
-                    StringCollection strings = new StringCollection();
-                    if (Mainview.SelectedItems.Count > 1)
-                    {
-                        for (int i = 0; i < Mainview.SelectedItems.Count; i++)
-                        {
-                            string aa = $@"{godir.Text}{Mainview.SelectedItems[i].Text}";
-                            strings.Add(aa);
-                        }
-                        Clipboard.SetFileDropList(strings);
-                    }
-                    string a = $@"{godir.Text}{Mainview.SelectedItems[0].Text}";
-                    strings.Add(a);
-                    Clipboard.SetFileDropList(strings);
-                }
-            }
-            catch (Exception ez)
-            {
-                Exceptionwriter.exceptionwrite(ez);
-            }
+            RightClickMenuFunc.Copy(Mainview, AddressBar);
         }
 
         private void newTabToolStripMenuItem_Click(object sender, EventArgs e)
@@ -165,28 +92,32 @@ namespace Litefolderplus
                     mem2 = a;
                     if (directorys.IsDrive(a))
                     {
-                        godir.Text = a;
-                        Text = $"{title} - {godir.Text}";
+                        AddressBar.Text = a;
+                        Text = $"{title} - {AddressBar.Text}";
                         tabControl1.TabPages[af].Text = a;
                         GetDirctoryItems(a);
-                        GetFiles(a);
+                        GetFile(a);
+                    }
+                    else if (AddressBar.Text == "Home")
+                    {
+                        
                     }
                     else
                     {
-                        godir.Text += $@"{a}\";
-                        if (Directory.Exists(godir.Text))
+                        AddressBar.Text += $@"{a}\";
+                        if (Directory.Exists(AddressBar.Text))
                         {
-                            Text = $"{title} - {godir.Text}";
+                            Text = $"{title} - {AddressBar.Text}";
                             tabControl1.TabPages[af].Text = a;
-                            GetDirctoryItems(godir.Text);
-                            GetFiles(godir.Text);
+                            GetDirctoryItems(AddressBar.Text);
+                            GetFile(AddressBar.Text);
                         }
-                        else if (File.Exists(godir.Text = godir.Text.Substring(0, godir.Text.Length - 1)))
+                        else if (File.Exists(AddressBar.Text = AddressBar.Text.Substring(0, AddressBar.Text.Length - 1)))
                         {
                             mem1 = a;
                             tabControl1.TabPages[af].Text = a;
-                            Openfile.openfileindefaultapplication(godir.Text);
-                            godir.Text = godir.Text.Substring(0, godir.Text.Length - a.Length);
+                            Openfile.openfileindefaultapplication(AddressBar.Text);
+                            AddressBar.Text = AddressBar.Text.Substring(0, AddressBar.Text.Length - a.Length);
                         }
                         else
                         {
@@ -198,33 +129,26 @@ namespace Litefolderplus
                 }
                 else
                 {
-                    win32.MessageBeep(0);
+                    publics.MessageBeep(0);
                 }
             }
             catch (Exception ex)
             {
-                Exceptionwriter.exceptionwrite(ex);
+                Exceptionwriter.write(ex);
             }
         }
 
         private void godir_KeyDown_1(object sender, KeyEventArgs e)
         {
-            string a = godir.Text;
-            try
+            switch (AddressBarFunc.AddressExistCheck(AddressBar))
             {
-                if (Directory.Exists(a))
-                {
-                    GetDirctoryItems(a);
-                    GetFiles(a);
-                }
-                else if (File.Exists(a))
-                {
-                    Openfile.openfileindefaultapplication(a);
-                }
-            }
-            catch (Exception ex)
-            {
-                Exceptionwriter.exceptionwrite(ex);
+                case 1:
+                    GetDirctoryItems(AddressBar.Text);
+                    GetFile(AddressBar.Text);
+                    break;
+                case 2:
+                    Openfile.openfileindefaultapplication(AddressBar.Text);
+                    break;
             }
         }
     }
