@@ -1,11 +1,10 @@
-﻿using System.Diagnostics;
-using System.IO;
+﻿using System.IO;
 
 namespace Litefolderplus.csharp
 {
-    public class files
+    public class FileSizeCalc
     {
-        public static string GetFilesize(FileInfo file)
+        public static string CalcFileSize(FileInfo file)
         {
             long a = file.Length;
             if(a < 1024)

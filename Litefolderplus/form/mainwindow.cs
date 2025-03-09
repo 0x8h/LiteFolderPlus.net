@@ -90,7 +90,7 @@ namespace Litefolderplus
                     string a = Mainview.SelectedItems[0].Text;
                     int af = tabControl1.SelectedIndex;
                     mem2 = a;
-                    if (directorys.IsDrive(a))
+                    if (Root.IsDrive(a))
                     {
                         AddressBar.Text = a;
                         Text = $"{title} - {AddressBar.Text}";

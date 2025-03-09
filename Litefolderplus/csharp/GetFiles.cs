@@ -14,7 +14,7 @@ namespace Litefolderplus.csharp
                 FileInfo[] fi = d.GetFiles("*");
                 foreach (FileInfo fi2 in fi)
                 {
-                    Listitemadd.Add(list, fi2.Name, $"{files.GetFilesize(fi2)}", "file", $"{Directory.GetLastWriteTime(fi2.FullName)}", fi2.FullName);
+                    Listitemadd.Add(list, fi2.Name, $"{FileSizeCalc.CalcFileSize(fi2)}", "file", $"{Directory.GetLastWriteTime(fi2.FullName)}", fi2.FullName);
                 }
             }
             catch(Exception ex)

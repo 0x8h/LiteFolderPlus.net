@@ -2,7 +2,7 @@
 
 namespace Litefolderplus.csharp
 {
-    public class directorys
+    public class Root
     {
         public static bool IsDrive(string path) {
             string root = Path.GetPathRoot(path);
