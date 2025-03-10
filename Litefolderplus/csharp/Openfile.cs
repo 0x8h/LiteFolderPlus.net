@@ -3,9 +3,9 @@ using System.Diagnostics;
 
 namespace Litefolderplus.csharp
 {
-    public class Openfile
+    internal class Openfile
     {
-        public static void openfileindefaultapplication(string sPath)
+        internal static void openfileindefaultapplication(string sPath)
         {
             try
             {

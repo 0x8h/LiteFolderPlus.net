@@ -2,9 +2,9 @@
 
 namespace Litefolderplus.csharp
 {
-    public class FileSizeCalc
+    internal class FileSizeCalc
     {
-        public static string CalcFileSize(FileInfo file)
+        internal static string CalcFileSize(FileInfo file)
         {
             long a = file.Length;
             if(a < 1024)

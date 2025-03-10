@@ -2,9 +2,9 @@
 
 namespace Litefolderplus.csharp
 {
-    public class GetFoldersize
+    internal class GetFoldersize
     {
-        public static long getsize(DirectoryInfo sDir) //Full path
+        internal static long Get(DirectoryInfo sDir) //Full path
         {
             long size = 0;
             foreach (FileInfo fi in sDir.GetFiles())
@@ -13,7 +13,7 @@ namespace Litefolderplus.csharp
             }
             foreach(DirectoryInfo d in sDir.GetDirectories())
             {
-                size += getsize(d);
+                size += Get(d);
             }
             return size;
         }
