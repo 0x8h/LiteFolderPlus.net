@@ -8,12 +8,12 @@ using System.Windows.Forms;
 namespace Litefolderplus
 {
 
-    public partial class mainwindow : Form
+    public partial class MainWindow : Form
     {
         static string mem1;
         static string mem2;
         static string title = "LiteFolderPlus";
-        public mainwindow()
+        public MainWindow()
         {
             InitializeComponent();
             gohome();
@@ -158,7 +158,7 @@ namespace Litefolderplus
             {
                 if (Mainview.SelectedItems.Count == 1)
                 {
-                    Openfile.openfileindefaultapplication($@"{AddressBar.Text}\{Mainview.SelectedItems.ToString()}");
+                    Openfile.openfileindefaultapplication($@"{AddressBar.Text}\{Mainview.SelectedItems[0].Text}");
                 }
             }
             catch (Exception ex)

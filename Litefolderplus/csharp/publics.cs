@@ -6,6 +6,6 @@ namespace Litefolderplus.csharp
     {
         [DllImport("user32.dll")]
         public static extern int MessageBeep(uint n);
-        public static mainwindow mainw = new mainwindow();
+        public static MainWindow mainw = new MainWindow();
     }
 }

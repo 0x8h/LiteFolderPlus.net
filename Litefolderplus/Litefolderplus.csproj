@@ -63,11 +63,11 @@
     <Compile Include="csharp\publics.cs" />
     <Compile Include="csharp\RightClickMenuFunc.cs" />
     <Compile Include="csharp\tabinfolist.cs" />
-    <Compile Include="form\mainwindow.cs">
+    <Compile Include="form\MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="form\mainwindow.Designer.cs">
-      <DependentUpon>mainwindow.cs</DependentUpon>
+    <Compile Include="form\MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="form\Movedialog.cs">
       <SubType>Form</SubType>
@@ -75,13 +75,22 @@
     <Compile Include="form\Movedialog.Designer.cs">
       <DependentUpon>Movedialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="form\PropertyWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\PropertyWindow.Designer.cs">
+      <DependentUpon>PropertyWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="form\mainwindow.resx">
-      <DependentUpon>mainwindow.cs</DependentUpon>
+    <EmbeddedResource Include="form\MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="form\Movedialog.resx">
       <DependentUpon>Movedialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\PropertyWindow.resx">
+      <DependentUpon>PropertyWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
