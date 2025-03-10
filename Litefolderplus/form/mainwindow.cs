@@ -37,7 +37,7 @@ namespace Litefolderplus
             Mainview.Items.Clear();
             Text = title;
             tabControl1.TabPages[current].Text = "Newtab";
-            GetDriveLetter.Get(Mainview);
+            GetDriveLetter.Get(Mainview, driveToolStripMenuItem);
         }
 
         private void goHomeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -149,6 +149,29 @@ namespace Litefolderplus
                 case 2:
                     Openfile.openfileindefaultapplication(AddressBar.Text);
                     break;
+            }
+        }
+
+        private void openItToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Mainview.SelectedItems.Count == 1)
+                {
+                    Openfile.openfileindefaultapplication($@"{AddressBar.Text}\{Mainview.SelectedItems.ToString()}");
+                }
+            }
+            catch (Exception ex)
+            {
+                Exceptionwriter.write(ex);
+            }
+        }
+
+        private void driveToolStripMenuItem_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            if (sender is ToolStripMenuItem menuItem)
+            {
+
             }
         }
     }

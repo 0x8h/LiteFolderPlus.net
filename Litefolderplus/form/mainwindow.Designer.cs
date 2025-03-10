@@ -51,6 +51,8 @@
             this.basepanel = new System.Windows.Forms.Panel();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.goToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.driveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.basepanel.SuspendLayout();
@@ -62,7 +64,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.tabToolStripMenuItem});
+            this.tabToolStripMenuItem,
+            this.goToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -82,19 +85,20 @@
             // openItToolStripMenuItem
             // 
             this.openItToolStripMenuItem.Name = "openItToolStripMenuItem";
-            this.openItToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.openItToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.openItToolStripMenuItem.Text = "Open it";
+            this.openItToolStripMenuItem.Click += new System.EventHandler(this.openItToolStripMenuItem_Click);
             // 
             // showMoreToolStripMenuItem
             // 
             this.showMoreToolStripMenuItem.Name = "showMoreToolStripMenuItem";
-            this.showMoreToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.showMoreToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.showMoreToolStripMenuItem.Text = "Show more";
             // 
             // goHomeToolStripMenuItem
             // 
             this.goHomeToolStripMenuItem.Name = "goHomeToolStripMenuItem";
-            this.goHomeToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.goHomeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.goHomeToolStripMenuItem.Text = "Go home";
             this.goHomeToolStripMenuItem.Click += new System.EventHandler(this.goHomeToolStripMenuItem_Click);
             // 
@@ -231,6 +235,21 @@
             this.tabControl1.Size = new System.Drawing.Size(776, 411);
             this.tabControl1.TabIndex = 1;
             // 
+            // goToolStripMenuItem
+            // 
+            this.goToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.driveToolStripMenuItem});
+            this.goToolStripMenuItem.Name = "goToolStripMenuItem";
+            this.goToolStripMenuItem.Size = new System.Drawing.Size(34, 20);
+            this.goToolStripMenuItem.Text = "Go";
+            // 
+            // driveToolStripMenuItem
+            // 
+            this.driveToolStripMenuItem.Name = "driveToolStripMenuItem";
+            this.driveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.driveToolStripMenuItem.Text = "Drive";
+            this.driveToolStripMenuItem.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.driveToolStripMenuItem_DropDownItemClicked);
+            // 
             // mainwindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -276,5 +295,7 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabControl tabControl1;
         internal System.Windows.Forms.ListView Mainview;
+        private System.Windows.Forms.ToolStripMenuItem goToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem driveToolStripMenuItem;
     }
 }
