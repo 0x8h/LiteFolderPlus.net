@@ -45,14 +45,15 @@
             this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.moveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AddressBar = new System.Windows.Forms.TextBox();
-            this.Namecolumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Size = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.filetype = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Namecolumn = new System.Windows.Forms.ColumnHeader();
+            this.Size = new System.Windows.Forms.ColumnHeader();
+            this.filetype = new System.Windows.Forms.ColumnHeader();
+            this.date = new System.Windows.Forms.ColumnHeader();
             this.Mainview = new System.Windows.Forms.ListView();
             this.basepanel = new System.Windows.Forms.Panel();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.reloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.basepanel.SuspendLayout();
@@ -62,10 +63,7 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.tabToolStripMenuItem,
-            this.goToolStripMenuItem});
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.fileToolStripMenuItem, this.tabToolStripMenuItem, this.goToolStripMenuItem });
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -74,10 +72,7 @@
             // 
             // fileToolStripMenuItem
             // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.openItToolStripMenuItem,
-            this.showMoreToolStripMenuItem,
-            this.goHomeToolStripMenuItem});
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.openItToolStripMenuItem, this.showMoreToolStripMenuItem, this.goHomeToolStripMenuItem, this.reloadToolStripMenuItem });
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -85,28 +80,26 @@
             // openItToolStripMenuItem
             // 
             this.openItToolStripMenuItem.Name = "openItToolStripMenuItem";
-            this.openItToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.openItToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.openItToolStripMenuItem.Text = "Open it";
             this.openItToolStripMenuItem.Click += new System.EventHandler(this.openItToolStripMenuItem_Click);
             // 
             // showMoreToolStripMenuItem
             // 
             this.showMoreToolStripMenuItem.Name = "showMoreToolStripMenuItem";
-            this.showMoreToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.showMoreToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.showMoreToolStripMenuItem.Text = "Show more";
             // 
             // goHomeToolStripMenuItem
             // 
             this.goHomeToolStripMenuItem.Name = "goHomeToolStripMenuItem";
-            this.goHomeToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.goHomeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.goHomeToolStripMenuItem.Text = "Go home";
             this.goHomeToolStripMenuItem.Click += new System.EventHandler(this.goHomeToolStripMenuItem_Click);
             // 
             // tabToolStripMenuItem
             // 
-            this.tabToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.deleteTabToolStripMenuItem,
-            this.newTabToolStripMenuItem});
+            this.tabToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.deleteTabToolStripMenuItem, this.newTabToolStripMenuItem });
             this.tabToolStripMenuItem.Name = "tabToolStripMenuItem";
             this.tabToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.tabToolStripMenuItem.Text = "Tab";
@@ -126,8 +119,7 @@
             // 
             // goToolStripMenuItem
             // 
-            this.goToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.driveToolStripMenuItem});
+            this.goToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.driveToolStripMenuItem });
             this.goToolStripMenuItem.Name = "goToolStripMenuItem";
             this.goToolStripMenuItem.Size = new System.Drawing.Size(34, 20);
             this.goToolStripMenuItem.Text = "Go";
@@ -135,15 +127,13 @@
             // driveToolStripMenuItem
             // 
             this.driveToolStripMenuItem.Name = "driveToolStripMenuItem";
-            this.driveToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
+            this.driveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.driveToolStripMenuItem.Text = "Drive";
             this.driveToolStripMenuItem.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.driveToolStripMenuItem_DropDownItemClicked);
             // 
             // contextMenuStrip1
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.copyToolStripMenuItem,
-            this.moveToolStripMenuItem});
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.copyToolStripMenuItem, this.moveToolStripMenuItem });
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(105, 48);
             // 
@@ -163,8 +153,7 @@
             // 
             // AddressBar
             // 
-            this.AddressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.AddressBar.Location = new System.Drawing.Point(3, 3);
             this.AddressBar.Name = "AddressBar";
             this.AddressBar.Size = new System.Drawing.Size(750, 19);
@@ -195,15 +184,9 @@
             // 
             // Mainview
             // 
-            this.Mainview.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Mainview.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.Mainview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Mainview.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Namecolumn,
-            this.Size,
-            this.filetype,
-            this.date});
+            this.Mainview.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { this.Namecolumn, this.Size, this.filetype, this.date });
             this.Mainview.ContextMenuStrip = this.contextMenuStrip1;
             this.Mainview.ForeColor = System.Drawing.Color.Black;
             this.Mainview.HideSelection = false;
@@ -217,9 +200,7 @@
             // 
             // basepanel
             // 
-            this.basepanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.basepanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.basepanel.Controls.Add(this.AddressBar);
             this.basepanel.Controls.Add(this.Mainview);
             this.basepanel.Location = new System.Drawing.Point(6, 6);
@@ -240,15 +221,20 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Location = new System.Drawing.Point(12, 27);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(776, 411);
             this.tabControl1.TabIndex = 1;
+            // 
+            // reloadToolStripMenuItem
+            // 
+            this.reloadToolStripMenuItem.Name = "reloadToolStripMenuItem";
+            this.reloadToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.reloadToolStripMenuItem.Text = "Reload";
+            this.reloadToolStripMenuItem.Click += new System.EventHandler(this.reloadToolStripMenuItem_Click);
             // 
             // MainWindow
             // 
@@ -270,8 +256,9 @@
             this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
+
+        private System.Windows.Forms.ToolStripMenuItem reloadToolStripMenuItem;
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;

@@ -36,6 +36,8 @@ namespace Litefolderplus
         private void gohome()
         {
             int current = tabControl1.SelectedIndex;
+            Currentaddr = "Home";
+            newaddr = "";
             AddressBar.Text = "";
             Mainview.Items.Clear();
             Text = title;
@@ -74,8 +76,6 @@ namespace Litefolderplus
 
         private void newTabToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Currentaddr = "Home";
-            newaddr = "";
             TabPage tab = new TabPage();
             tab.Name = "Newtab" + Gettabnum.Get(tabControl1);
             tab.Text = "Newtab";
@@ -228,6 +228,27 @@ namespace Litefolderplus
                         Openfile.openfileindefaultapplication(AddressBar.Text);
                         break;
                 }
+            }
+        }
+
+        private void reloadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Currentaddr == "Home")
+                {
+                    Mainview.Items.Clear();
+                    GetDriveLetter.Get(Mainview, driveToolStripMenuItem);
+                }
+                else
+                {
+                    GetDirctoryItems(Currentaddr);
+                    GetFile(Currentaddr);
+                }
+            }
+            catch (Exception ex)
+            {
+                Exceptionwriter.write(ex);
             }
         }
     }
