@@ -12,6 +12,8 @@ namespace Litefolderplus
     {
         static string mem1;
         static string mem2;
+        static string Currentaddr;
+        static string newaddr;
         static string title = "LiteFolderPlus";
         public MainWindow()
         {
@@ -87,16 +89,17 @@ namespace Litefolderplus
             {
                 if (Mainview.SelectedItems.Count > 0 && Mainview.SelectedItems.Count < 2)
                 {
-                    string a = Mainview.SelectedItems[0].Text;
+                    newaddr = Mainview.SelectedItems[0].Text;
+                    Currentaddr = AddressBar.Text;
                     int af = tabControl1.SelectedIndex;
-                    mem2 = a;
-                    if (Root.IsDrive(a))
+
+                    if (Root.IsDrive(newaddr) && Currentaddr == "")
                     {
-                        AddressBar.Text = a;
+                        AddressBar.Text = newaddr;
                         Text = $"{title} - {AddressBar.Text}";
-                        tabControl1.TabPages[af].Text = a;
-                        GetDirctoryItems(a);
-                        GetFile(a);
+                        tabControl1.TabPages[af].Text = newaddr;
+                        GetDirctoryItems(newaddr);
+                        GetFile(newaddr);
                     }
                     else if (AddressBar.Text == "Home")
                     {
@@ -104,20 +107,19 @@ namespace Litefolderplus
                     }
                     else
                     {
-                        AddressBar.Text += $@"{a}\";
-                        if (Directory.Exists(AddressBar.Text))
+                        AddressBar.Text += $@"{newaddr}\";
+                        Currentaddr = Path.Combine(Currentaddr, newaddr);
+                        if (Directory.Exists(Currentaddr))
                         {
-                            Text = $"{title} - {AddressBar.Text}";
-                            tabControl1.TabPages[af].Text = a;
-                            GetDirctoryItems(AddressBar.Text);
-                            GetFile(AddressBar.Text);
+                            Text = $"{title} - {Currentaddr}";
+                            tabControl1.TabPages[af].Text = Currentaddr;
+                            GetDirctoryItems(Currentaddr);
+                            GetFile(Currentaddr);
                         }
-                        else if (File.Exists(AddressBar.Text = AddressBar.Text.Substring(0, AddressBar.Text.Length - 1)))
+                        else if(File.Exists(Currentaddr))
                         {
-                            mem1 = a;
-                            tabControl1.TabPages[af].Text = a;
-                            Openfile.openfileindefaultapplication(AddressBar.Text);
-                            AddressBar.Text = AddressBar.Text.Substring(0, AddressBar.Text.Length - a.Length);
+                            mem1 = newaddr;
+                            Openfile.openfileindefaultapplication(Currentaddr);
                         }
                         else
                         {
@@ -138,27 +140,25 @@ namespace Litefolderplus
             }
         }
 
-        private void godir_KeyDown_1(object sender, KeyEventArgs e)
-        {
-            switch (AddressBarFunc.AddressExistCheck(AddressBar))
-            {
-                case 1:
-                    GetDirctoryItems(AddressBar.Text);
-                    GetFile(AddressBar.Text);
-                    break;
-                case 2:
-                    Openfile.openfileindefaultapplication(AddressBar.Text);
-                    break;
-            }
-        }
-
         private void openItToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
                 if (Mainview.SelectedItems.Count == 1)
                 {
-                    Openfile.openfileindefaultapplication($@"{AddressBar.Text}\{Mainview.SelectedItems[0].Text}");
+                    if (Currentaddr == "")
+                    {
+                        Currentaddr = AddressBar.Text;
+                        switch (AddressBarFunc.AddressExistCheck(AddressBar)) {
+                            case 1:
+                                GetDirctoryItems(Path.Combine(Currentaddr, Mainview.SelectedItems[0].Text));
+                                GetFile(Path.Combine(Currentaddr, Mainview.SelectedItems[0].Text));
+                                break;
+                            case 2:
+                                Openfile.openfileindefaultapplication(Path.Combine(Currentaddr, Mainview.SelectedItems[0].Text));
+                                break;
+                        }
+                    }
                 }
             }
             catch (Exception ex)
@@ -172,6 +172,26 @@ namespace Litefolderplus
             if (sender is ToolStripMenuItem menuItem)
             {
 
+            }
+        }
+
+        private void AddressBar_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                switch (AddressBarFunc.AddressExistCheck(AddressBar))
+                {
+                    case 0:
+                        gohome();
+                        break;
+                    case 1:
+                        GetDirctoryItems(AddressBar.Text);
+                        GetFile(AddressBar.Text);
+                        break;
+                    case 2:
+                        Openfile.openfileindefaultapplication(AddressBar.Text);
+                        break;
+                }
             }
         }
     }

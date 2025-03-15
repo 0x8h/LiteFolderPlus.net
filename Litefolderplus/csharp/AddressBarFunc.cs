@@ -19,6 +19,10 @@ namespace Litefolderplus.csharp
                 {
                     return 2;
                 }
+                else
+                {
+                    return 0;
+                }
             }
             catch (Exception ex)
             {
