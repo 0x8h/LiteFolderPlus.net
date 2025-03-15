@@ -49,7 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="csharp\AddressBarFunc.cs" />
+    <Compile Include="csharp\Exist.cs" />
     <Compile Include="csharp\Root.cs" />
     <Compile Include="csharp\Exceptionwriter.cs" />
     <Compile Include="csharp\FileSizeCalc.cs" />
@@ -62,7 +62,7 @@
     <Compile Include="csharp\Openfile.cs" />
     <Compile Include="csharp\publics.cs" />
     <Compile Include="csharp\RightClickMenuFunc.cs" />
-    <Compile Include="csharp\tabinfolist.cs" />
+    <Compile Include="csharp\TabHistManag.cs" />
     <Compile Include="form\MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>

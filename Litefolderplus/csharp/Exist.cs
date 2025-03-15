@@ -4,18 +4,17 @@ using System.Windows.Forms;
 
 namespace Litefolderplus.csharp
 {
-    internal class AddressBarFunc
+    internal class Exist
     {
-        internal static int AddressExistCheck(TextBox addressbarstatus)
+        internal static int Survey(string Dir)
         {
-            string temp = addressbarstatus.Text;
             try
             {
-                if (Directory.Exists(temp))
+                if (Directory.Exists(Dir))
                 {
                     return 1;
                 }
-                else if(File.Exists(temp))
+                else if(File.Exists(Dir))
                 {
                     return 2;
                 }

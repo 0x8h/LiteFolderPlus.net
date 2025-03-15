@@ -2,11 +2,12 @@
 
 namespace Litefolderplus.csharp
 {
-    internal class tabinfolist
+    internal class TabHistManag
     {
         internal static void Get(int tabs)
         {
             var bufferofmemory = new List<string>();
+            
             
         }
     }
