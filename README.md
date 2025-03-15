@@ -24,3 +24,11 @@ Following rights and obligations apply:
 >* Must be released under the same GPL-3.0 license (even if modified or redistributed).
 >* Must provide the source code when distributing.
 >* Must retain the original copyright notice.
+
+<h3>🔗 Link</h3>
+
+> [0x8h(MainDev)](https://github.com/0x8h) 
+<br>
+> [ikuxu(Subdev?)](https://github.com/ohno114514)
+<br>
+> [Official?Discord](https://discord.gg/uBhTBaQy4K)
