@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="csharp\Exist.cs" />
+    <Compile Include="csharp\HistoryManager.cs" />
     <Compile Include="csharp\Root.cs" />
     <Compile Include="csharp\Exceptionwriter.cs" />
     <Compile Include="csharp\FileSizeCalc.cs" />

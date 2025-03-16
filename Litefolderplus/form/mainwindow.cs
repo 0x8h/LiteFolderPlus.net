@@ -19,7 +19,7 @@ namespace Litefolderplus
         public MainWindow()
         {
             InitializeComponent();
-            gohome();
+            Gohome();
         }
 
         private void GetDirctoryItems(string sDir)
@@ -33,7 +33,7 @@ namespace Litefolderplus
             GetFiles.Get(Mainview, sDir);
         }
 
-        private void gohome()
+        private void Gohome()
         {
             int current = tabControl1.SelectedIndex;
             Currentaddr = "Home";
@@ -47,7 +47,7 @@ namespace Litefolderplus
 
         private void goHomeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            gohome();
+            Gohome();
         }
 
         private void moveToolStripMenuItem_Click(object sender, EventArgs e) //soon tm
@@ -142,13 +142,13 @@ namespace Litefolderplus
                 if (Mainview.SelectedItems.Count > 0 && Mainview.SelectedItems.Count < 2)
                 {
                     newaddr = Mainview.SelectedItems[0].Text;
-                    if (Root.IsDrive(newaddr) && Currentaddr == null)
+                    if (Root.IsDrive(newaddr) && Currentaddr == "Home")
                     {
                         Currentaddr = newaddr;
-                        AddressBar.Text = Currentaddr;
-                        Text = $@"{title} - {Currentaddr}";
-                        GetDirctoryItems(Currentaddr);
-                        GetFile(Currentaddr);
+                        AddressBar.Text = newaddr;
+                        Text = $@"{title} - {newaddr}";
+                        GetDirctoryItems(newaddr);
+                        GetFile(newaddr);
                     }
                     else
                     {
@@ -156,9 +156,10 @@ namespace Litefolderplus
                         switch (Exist.Survey(Currentaddr))
                         {
                             case 0:
-                                gohome();
+                                Gohome();
                                 break;
                             case 1:
+                                AddressBar.Text = Currentaddr;
                                 GetDirctoryItems(Currentaddr);
                                 GetFile(Currentaddr);
                                 break;
@@ -205,10 +206,6 @@ namespace Litefolderplus
 
         private void driveToolStripMenuItem_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            if (sender is ToolStripMenuItem menuItem)
-            {
-
-            }
         }
 
         private void AddressBar_KeyDown_1(object sender, KeyEventArgs e)
@@ -218,7 +215,7 @@ namespace Litefolderplus
                 switch (Exist.Survey(AddressBar.Text))
                 {
                     case 0:
-                        gohome();
+                        Gohome();
                         break;
                     case 1:
                         GetDirctoryItems(AddressBar.Text);

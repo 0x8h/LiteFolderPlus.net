@@ -36,6 +36,7 @@
             this.openItToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showMoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.goHomeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteTabToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newTabToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,7 +54,6 @@
             this.basepanel = new System.Windows.Forms.Panel();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.reloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.basepanel.SuspendLayout();
@@ -80,22 +80,29 @@
             // openItToolStripMenuItem
             // 
             this.openItToolStripMenuItem.Name = "openItToolStripMenuItem";
-            this.openItToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openItToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.openItToolStripMenuItem.Text = "Open it";
             this.openItToolStripMenuItem.Click += new System.EventHandler(this.openItToolStripMenuItem_Click);
             // 
             // showMoreToolStripMenuItem
             // 
             this.showMoreToolStripMenuItem.Name = "showMoreToolStripMenuItem";
-            this.showMoreToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.showMoreToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.showMoreToolStripMenuItem.Text = "Show more";
             // 
             // goHomeToolStripMenuItem
             // 
             this.goHomeToolStripMenuItem.Name = "goHomeToolStripMenuItem";
-            this.goHomeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.goHomeToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.goHomeToolStripMenuItem.Text = "Go home";
             this.goHomeToolStripMenuItem.Click += new System.EventHandler(this.goHomeToolStripMenuItem_Click);
+            // 
+            // reloadToolStripMenuItem
+            // 
+            this.reloadToolStripMenuItem.Name = "reloadToolStripMenuItem";
+            this.reloadToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.reloadToolStripMenuItem.Text = "Reload";
+            this.reloadToolStripMenuItem.Click += new System.EventHandler(this.reloadToolStripMenuItem_Click);
             // 
             // tabToolStripMenuItem
             // 
@@ -127,7 +134,7 @@
             // driveToolStripMenuItem
             // 
             this.driveToolStripMenuItem.Name = "driveToolStripMenuItem";
-            this.driveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.driveToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
             this.driveToolStripMenuItem.Text = "Drive";
             this.driveToolStripMenuItem.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.driveToolStripMenuItem_DropDownItemClicked);
             // 
@@ -228,13 +235,6 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(776, 411);
             this.tabControl1.TabIndex = 1;
-            // 
-            // reloadToolStripMenuItem
-            // 
-            this.reloadToolStripMenuItem.Name = "reloadToolStripMenuItem";
-            this.reloadToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.reloadToolStripMenuItem.Text = "Reload";
-            this.reloadToolStripMenuItem.Click += new System.EventHandler(this.reloadToolStripMenuItem_Click);
             // 
             // MainWindow
             // 

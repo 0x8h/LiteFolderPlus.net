@@ -6,8 +6,6 @@ namespace Litefolderplus.csharp
     {
         internal static void Get(int tabs)
         {
-            var bufferofmemory = new List<string>();
-            
             
         }
     }
