@@ -27,16 +27,8 @@ Following rights and obligations apply:
 
 <h3>🔗 Link</h3>
 
-<<<<<<< HEAD
 > [0x8h(MainDev)](https://github.com/0x8h) 
 <br>
 > [ikuxu(Subdev?)](https://github.com/ohno114514)
 <br>
 > [Official?Discord](https://discord.gg/uBhTBaQy4K)
-=======
-[0x8h(MainDev)](https://github.com/0x8h)
-
-[ikuxu(Subdev?)](https://github.com/ohno114514)
-
-[Official?Discord](https://discord.gg/uBhTBaQy4K)
->>>>>>> origin/main
