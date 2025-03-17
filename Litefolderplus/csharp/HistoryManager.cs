@@ -19,13 +19,9 @@ namespace Litefolderplus.csharp
         }
         internal static void MoveTo(string path)
         {
-            if (_backstack == null)
+            if (_backstack == null | _forwordList == null)
             {
                 _backstack = new Stack<string>();
-            }
-
-            if (_forwordList == null)
-            {
                 _forwordList = new List<string>();
             }
             if (path == _current)

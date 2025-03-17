@@ -72,6 +72,8 @@ namespace Litefolderplus
 
         private void moveToolStripMenuItem_Click(object sender, EventArgs e) //soon tm
         {
+            throw new System.NotImplementedException();
+            /*
             try
             {
                 if (Mainview.SelectedItems.Count > 0)
@@ -87,6 +89,7 @@ namespace Litefolderplus
             {
                 Exceptionwriter.write(ez);
             }
+            */
         }
 
         private void copyToolStripMenuItem_Click(object sender, EventArgs e)
@@ -96,6 +99,8 @@ namespace Litefolderplus
 
         private void newTabToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            throw new System.NotImplementedException();
+            /*
             TabPage tab = new TabPage();
             tab.Name = "Newtab" + Gettabnum.Get(tabControl1);
             tab.Text = "Newtab";
@@ -104,61 +109,13 @@ namespace Litefolderplus
             Panel panel = new Panel();
             panel.Controls.AddRange(basepanel.Controls.Cast<Control>().ToArray());
             tab.Controls.Add(panel);
+            */
         }
 
         private void Mainview_MouseDoubleClick_1(object sender, MouseEventArgs e)
         {
             try
             {
-                /*
-                if (Mainview.SelectedItems.Count > 0 && Mainview.SelectedItems.Count < 2)
-                {
-                    newaddr = Mainview.SelectedItems[0].Text;
-                    Currentaddr = AddressBar.Text;
-                    
-                    int af = tabControl1.SelectedIndex;
-
-                    if (Root.IsDrive(newaddr) && Currentaddr == "")
-                    {
-                        AddressBar.Text = newaddr;
-                        Text = $"{title} - {AddressBar.Text}";
-                        tabControl1.TabPages[af].Text = newaddr;
-                        GetDirctoryItems(newaddr);
-                        GetFile(newaddr);
-                    }
-                    else if (AddressBar.Text == "Home")
-                    {
-                        
-                    }
-                    else
-                    {
-                        AddressBar.Text += $@"{newaddr}\";
-                        Currentaddr = Path.Combine(Currentaddr, newaddr);
-                        if (Directory.Exists(Currentaddr))
-                        {
-                            Text = $"{title} - {Currentaddr}";
-                            tabControl1.TabPages[af].Text = Currentaddr;
-                            GetDirctoryItems(Currentaddr);
-                            GetFile(Currentaddr);
-                        }
-                        else if(File.Exists(Currentaddr))
-                        {
-                            mem1 = newaddr;
-                            Openfile.openfileindefaultapplication(Currentaddr);
-                        }
-                        else
-                        {
-                            Text = $"{title} - Not found files / dirctory";
-                            gohome();
-                        }
-                    }
-
-                } 
-                else
-                {
-                    publics.MessageBeep(0);
-                }
-                */
                 if (Mainview.SelectedItems.Count > 0 && Mainview.SelectedItems.Count < 2)
                 {
                     newaddr = Mainview.SelectedItems[0].Text;
@@ -241,6 +198,7 @@ namespace Litefolderplus
                         Gohome();
                         break;
                     case 1:
+                        HistoryManager.MoveTo(AddressBar.Text);
                         GetDirctoryItems(AddressBar.Text);
                         GetFile(AddressBar.Text);
                         break;
@@ -298,7 +256,6 @@ namespace Litefolderplus
         {
             try
             {
-                Currentaddr = "";
                 Currentaddr = HistoryManager.Back();
                 if (Currentaddr == "Home")
                 {
@@ -316,13 +273,6 @@ namespace Litefolderplus
             {
                 Exceptionwriter.write(ex);
             }
-        }
-    }
-    public class DoubleBufferingthis : ListView
-    {
-        public DoubleBufferingthis()
-        {
-            DoubleBuffered = false;
         }
     }
 }
