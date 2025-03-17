@@ -42,6 +42,9 @@
             this.newTabToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.goToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.driveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bookmarkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.BackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.forwardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.moveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -126,7 +129,7 @@
             // 
             // goToolStripMenuItem
             // 
-            this.goToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.driveToolStripMenuItem });
+            this.goToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.driveToolStripMenuItem, this.bookmarkToolStripMenuItem, this.BackToolStripMenuItem, this.forwardToolStripMenuItem });
             this.goToolStripMenuItem.Name = "goToolStripMenuItem";
             this.goToolStripMenuItem.Size = new System.Drawing.Size(34, 20);
             this.goToolStripMenuItem.Text = "Go";
@@ -134,9 +137,29 @@
             // driveToolStripMenuItem
             // 
             this.driveToolStripMenuItem.Name = "driveToolStripMenuItem";
-            this.driveToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
+            this.driveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.driveToolStripMenuItem.Text = "Drive";
             this.driveToolStripMenuItem.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.driveToolStripMenuItem_DropDownItemClicked);
+            // 
+            // bookmarkToolStripMenuItem
+            // 
+            this.bookmarkToolStripMenuItem.Name = "bookmarkToolStripMenuItem";
+            this.bookmarkToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.bookmarkToolStripMenuItem.Text = "Bookmark";
+            // 
+            // BackToolStripMenuItem
+            // 
+            this.BackToolStripMenuItem.Name = "BackToolStripMenuItem";
+            this.BackToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.BackToolStripMenuItem.Text = "Back";
+            this.BackToolStripMenuItem.Click += new System.EventHandler(this.BackToolStripMenuItem_Click);
+            // 
+            // forwardToolStripMenuItem
+            // 
+            this.forwardToolStripMenuItem.Name = "forwardToolStripMenuItem";
+            this.forwardToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.forwardToolStripMenuItem.Text = "Forward";
+            this.forwardToolStripMenuItem.Click += new System.EventHandler(this.forwardToolStripMenuItem_Click);
             // 
             // contextMenuStrip1
             // 
@@ -257,6 +280,11 @@
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.ToolStripMenuItem forwardToolStripMenuItem;
+
+        private System.Windows.Forms.ToolStripMenuItem bookmarkToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem BackToolStripMenuItem;
 
         private System.Windows.Forms.ToolStripMenuItem reloadToolStripMenuItem;
 

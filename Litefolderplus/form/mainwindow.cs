@@ -10,15 +10,13 @@ namespace Litefolderplus
 
     public partial class MainWindow : Form
     {
-        static string mem1;
-        static string mem2;
-        static string CombineAddr;
         static string Currentaddr;
         static string newaddr;
         static string title = "LiteFolderPlus";
         public MainWindow()
         {
             InitializeComponent();
+            
             Gohome();
         }
 
@@ -33,9 +31,16 @@ namespace Litefolderplus
             GetFiles.Get(Mainview, sDir);
         }
 
+        private void ChangeAddressBar(string str)
+        {
+            AddressBar.Text = "";
+            AddressBar.Text = str;
+        }
+
         private void Gohome()
         {
             int current = tabControl1.SelectedIndex;
+            HistoryManager.MoveTo("Home");
             Currentaddr = "Home";
             newaddr = "";
             AddressBar.Text = "";
@@ -43,6 +48,21 @@ namespace Litefolderplus
             Text = title;
             tabControl1.TabPages[current].Text = "Newtab";
             GetDriveLetter.Get(Mainview, driveToolStripMenuItem);
+        }
+
+        private void UpdatePathUi(string nPath)
+        {
+            AddressBar.Text = (nPath == "Home" ? "" : nPath);
+            Mainview.Items.Clear();
+            if (nPath == "Home")
+            {
+                GetDriveLetter.Get(Mainview, driveToolStripMenuItem);
+            }
+            else
+            {
+                GetDirctoryItems(nPath);
+                GetFile(nPath);
+            }
         }
 
         private void goHomeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -146,6 +166,7 @@ namespace Litefolderplus
                     {
                         Currentaddr = newaddr;
                         AddressBar.Text = newaddr;
+                        HistoryManager.MoveTo(newaddr);
                         Text = $@"{title} - {newaddr}";
                         GetDirctoryItems(newaddr);
                         GetFile(newaddr);
@@ -160,12 +181,13 @@ namespace Litefolderplus
                                 break;
                             case 1:
                                 AddressBar.Text = Currentaddr;
+                                HistoryManager.MoveTo(Currentaddr);
                                 GetDirctoryItems(Currentaddr);
                                 GetFile(Currentaddr);
                                 break;
                             case 2:
                                 Openfile.openfileindefaultapplication(Path.Combine(Currentaddr));
-                                break;
+                                break; 
                         }
                     }
 
@@ -206,6 +228,7 @@ namespace Litefolderplus
 
         private void driveToolStripMenuItem_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
+            throw new System.NotImplementedException();
         }
 
         private void AddressBar_KeyDown_1(object sender, KeyEventArgs e)
@@ -239,6 +262,52 @@ namespace Litefolderplus
                 }
                 else
                 {
+                    GetDirctoryItems(Currentaddr);
+                    GetFile(Currentaddr);
+                }
+            }
+            catch (Exception ex)
+            {
+                Exceptionwriter.write(ex);
+            }
+        }
+
+        private void Clear()
+        {
+            Mainview.Items.Clear();
+            AddressBar.Clear();
+        }
+        
+        private void forwardToolStripMenuItem_Click(object sender, EventArgs e) //forward
+        {
+            Currentaddr = HistoryManager.Forward();
+            if (Currentaddr == "Home")
+            {
+                Clear();
+                GetDriveLetter.Get(Mainview, driveToolStripMenuItem);
+            }
+            else
+            {
+                ChangeAddressBar(Currentaddr);
+                GetDirctoryItems(Currentaddr);
+                GetFile(Currentaddr);
+            }
+        }
+
+        private void BackToolStripMenuItem_Click(object sender, EventArgs e) //back
+        {
+            try
+            {
+                Currentaddr = "";
+                Currentaddr = HistoryManager.Back();
+                if (Currentaddr == "Home")
+                {
+                    Clear();
+                    GetDriveLetter.Get(Mainview, driveToolStripMenuItem);
+                }
+                else
+                {
+                    ChangeAddressBar(Currentaddr);
                     GetDirctoryItems(Currentaddr);
                     GetFile(Currentaddr);
                 }
